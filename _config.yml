@@ -1,13 +1,14 @@
 # Site settings
 title: ardiesan
 description: |
-  Another random page
-  on githubverse
+  Journey into becoming a better<br/>
+  software engineer in full speed.
 owner: ardiesan # or company name
 first_published: 2022 # if migrating another site, the year of your first publish
 email: ardiesan@users.noreply.github.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ardiesan.github.io" # the base hostname & protocol for your site
+permalink: /:categories/:year/:month/:day/:title:output_ext
 social:
   #twitter: https://twitter.com/<username>
   github: https://github.com/ardiesan

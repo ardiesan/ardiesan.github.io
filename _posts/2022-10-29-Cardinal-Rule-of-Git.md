@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Cardinal Rule of Git"
+categories:
+- wares
 ---
 
 ## Don’t push your work until you’re happy with it
