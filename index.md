@@ -73,8 +73,8 @@ layout: landing
 									<p>Everything starts with the mind. What we think and ruminate about in a daily basis will transform into an action.</p>
 								</li>
 								<li class="icon fa-scale-balanced">
-									<h3>Development Standards</h3>
-									<p>Very few things in this world is absolute. Standards serves as a compass with which we all aim to move towards.</p>
+									<h3>Development Guide</h3>
+									<p>Very few things in this world is absolute. Guide serve as a compass with which we all aim to move towards.</p>
 								</li>
 								<li class="icon fa-plug">
 									<h3>Wares</h3>
