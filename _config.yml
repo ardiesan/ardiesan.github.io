@@ -1,13 +1,10 @@
-# Welcome to Jekyll!
-#
-
 # Site settings
 title: ardiesan
 description: |
   Another random page
   on githubverse
 owner: ardiesan # or company name
-first_published: 2016 # if migrating another site, the year of your first publish
+first_published: 2022 # if migrating another site, the year of your first publish
 email: ardiesan@users.noreply.github.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ardiesan.github.io" # the base hostname & protocol for your site
