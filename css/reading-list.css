@@ -1,3 +1,15 @@
+/* general purpose padding */
+.pr-2 {
+  padding-right: 40px;
+}
+
+/* landing page */
+.latest_post_readtime {
+  float: right;
+  color: #666;
+}
+
+/* archive template */
 .list_header_container {
   width: 100%;
 }
