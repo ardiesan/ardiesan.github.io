@@ -3,8 +3,17 @@ layout: default
 ---
 <article id="main">
 
+  {%- assign author = site.data.authors[page.author] -%}
   <header>
     <h2>{{ page.title }}</h2>
+    {% if author %}
+    <div class="inner byline">
+      <address>by <a rel="author">{{ author.name }}</a></address>
+      {% if page.date %}
+      on <time>{{ page.date | date: "%Y-%m-%d %H:%M " | append: site.timezone }}</time> 
+      {% endif %}
+    </div>
+    {% endif %}
     {% if page.description %}
     <p>{{ page.description }}</p>
     {% endif %}
@@ -14,6 +23,15 @@ layout: default
     <div class="inner">
       {{ content }}
     </div>
+
+  	<div class="inner">
+      <hr/>
+      <h4 class="">All Tags</h4>
+      {% for tag in site.tags %}
+      <a href="/tags/{{ tag[0] | slugify }}" class="post-tag"><nobr>{{ tag[0] }}</nobr>&nbsp;</a> 
+      {% endfor %}
+    </div>
   </section>
 
 </article>
+	

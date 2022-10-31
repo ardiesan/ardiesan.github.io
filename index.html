@@ -25,9 +25,9 @@ layout: landing
                 be, to rise, to become, to transform, or to transcend ourselves. We have free will.</p>
 							</header>
 							<ul class="icons major">
-								<li><span class="icon fa-diamond major style1"><span class="label">Lorem</span></span></li>
-								<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>
-								<li><span class="icon fa-code major style3"><span class="label">Dolor</span></span></li>
+								<li><span class="icon fa-regular fa-diamond major style1"><span class="label">Rough</span></span></li>
+								<li><span class="icon fa-solid fa-brain major style2"><span class="label">Refine</span></span></li>
+								<li><span class="icon fa-regular fa-code major style3"><span class="label">Code</span></span></li>
 							</ul>
 						</div>
 					</section>
@@ -70,7 +70,7 @@ layout: landing
   					<div class="6u 12u$(medium)">
               <h2>Latest Posts</h2>
               <ul class="alt">
-              {% for post in site.posts %}
+              {% for post in site.posts limit:5 %}
                 {% if post.tags contains "development guide" %}
                   {% continue %}
                 {% endif %}
@@ -86,7 +86,7 @@ layout: landing
   					<div class="6u 12u$(medium)">
               <h2>Development guide</h2>
               <ul class="alt">
-              {% for post in site.posts %}
+              {% for post in site.posts limit:5 %}
                 {% if post.tags contains "development guide" %}
                 <li>
                 <a href="{{ post.url }}">
@@ -112,7 +112,7 @@ layout: landing
 							</header>
 							<ul class="features">
 								<li class="icon fa-brain">
-                  <h3><a href="/tags/mindset">Mindset</a></h3>
+                  <h3><a href="/tag/mindset">Mindset</a></h3>
 									<p>Everything starts with the mind. What we think and ruminate about in a daily basis will transform into an action.</p>
 								</li>
 								<li class="icon fa-scale-balanced">
@@ -120,11 +120,11 @@ layout: landing
 									<p>Very few things in this world is absolute. Guide serve as a compass with which we all aim to move towards.</p>
 								</li>
 								<li class="icon fa-plug">
-									<h3>Wares</h3>
+                  <h3><a href="/tag/wares">Wares</a></h3>
 									<p>Man was always assisted by tools even at the dawn of time. Today, we rely of hardwares and softwares to get things done.</p>
 								</li>
 								<li class="icon fa-chalkboard-user">
-									<h3>Engineers in Training</h3>
+                  <h3><a href="/engineers-training">Engineers Training</a></h3>
 									<p>Everyone starts somewhere. Catch a glimpse at how some journey from one point to another in their life as a software engineer.</p>
 								</li>
 							</ul>

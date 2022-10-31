@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Everything Starts with the Right Attitude"
+author: ardie
+last_modified: 2022-10-31 16:12:59
 tags:
 - mindset
 ---
