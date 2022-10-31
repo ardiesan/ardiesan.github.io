@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{%- include header.html -%}
+<main class="archive">
+  <div class="archive__header">
+    <h1>
+      {%- assign about_page_path = site.theme_setting.about_page | default: "archive.md" %}
+      {%- assign about_page = site.pages | where: "path", about_page_path | first -%}
+      <a href="{{ about_page.url | relative_url }}">{{ author | default: site.title }}</a>
+    </h1>
+    <div class="archive__header_intro">
+      {{ site.description | markdownify }}
+    </div>
+  </div>
+  <div class="archive__content">
+		<div class="archive__list category__list">
+      <h1>Tags <span class="subhead">{{ page.title }}</span></h1>
+			<ul>
+      {%- assign pages = site[page.pages] | default: site.posts -%}
+      {% for post in page.posts %}
+				<li class="archive__item">
+					<a href="{{ post.url | relative_url }}" class="archive__link clearfix">
+            <span class="archive__time">{%- if post.layout == 'book' -%}{{ post.date }}{%- else -%}{{ post.date | date: "%Y-%m-%d" }}{%- endif -%}</span>
+						<span class="archive__title">{{ post.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+			</ul>
+		</div>
+  </div>
+  {%- include footer.html -%}
+</main>
+<h1>Archive of posts from {{ page.date | date: "%B %-d, %Y" }}</h1>
+
+<ul class="posts">
+{% for post in page.posts %}
+  <li>
+    <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+    <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </li>
+{% endfor %}
+</ul>
+

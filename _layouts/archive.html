@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+      {% include header.html %}
+      <section id="main"> 
+        {% assign url_d = page.path | split: "/" %}
+
+        {% if url_d.size == 2 and url_d[0] != "tags" %}
+          {% assign path_year = url_d[0] | append: "-01-01 00:01" | date: "%Y" %}
+          {% for year_text in site.data.year %}
+          {% if path_year == year_text.year %}
+            {% assign title = year_text.text %}
+          {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% if url_d.size == 3 %}
+          {% assign path_year = url_d[0] | append: "-01-01 00:01" | date: "%Y" %}
+          {% for year_text in site.data.year %}
+          {% if path_year == year_text.year %}
+            {% assign year_in_text = year_text.text %}
+          {% endif %}
+          {% endfor %}
+          {% assign month = url_d[0] | append: "-" | append: url_d[1] | append: "-01 00:01" | date: "%B" %}
+          {% assign title = month | append: " of<br/>" | append: year_in_text %}
+        {% endif %}
+
+        {% if url_d[0] == "tags" %}
+          {% assign title = "Everything about " | append: page.title %}
+          {% for tag_desc in site.data.tags %}
+          {% if url_d[1] == tag_desc.tag %}
+            {% assign description = tag_desc.description %}
+          {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        <header>
+          <h2>{{ title }}</h2>
+          {% if description or page.description %}
+          <p style="max-width: 75%; margin: 0 auto;">{{ description | default: page.description }}</p>
+          {% endif %}
+        </header>
+      
+        <section class="wrapper style5">
+          <div class="inner">
+            {{ content }}
+          </div>
+        </section>
+      
+      </section>
+
+      {% include footer.html %}
+
+      {% include scripts.html %}
+
+    </div>
+
+  </body>
+
+</html>

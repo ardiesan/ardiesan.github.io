@@ -1,0 +1,17 @@
+---
+layout: archive
+---
+      {% assign url_d = page.path | split: "/" %}
+      {% assign month = url_d[0] | append: "-" | append: url_d[1] | append: "-01 00:01" | date: "%B" %}
+      <h2>{{ month }}</h2>
+			<ul>
+      {%- assign pages = site[page.pages] | default: site.posts -%}
+      {% for post in page.posts %}
+				<li class="archive__item">
+					<a href="{{ post.url | relative_url }}" class="archive__link clearfix">
+            <span class="archive__time">{%- if post.layout == 'book' -%}{{ post.date }}{%- else -%}{{ post.date | date: "%Y-%m-%d" }}{%- endif -%}</span>
+						<span class="archive__title">{{ post.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+			</ul>

@@ -8,7 +8,7 @@ first_published: 2022 # if migrating another site, the year of your first publis
 email: ardiesan@users.noreply.github.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ardiesan.github.io" # the base hostname & protocol for your site
-permalink: /:categories/:year/:month/:day/:title:output_ext
+permalink: /:year/:month/:day/:title:output_ext
 markdown: kramdown
 # More › http://kramdown.gettalong.org/quickref.html
 # Options › http://kramdown.gettalong.org/options.html
@@ -75,4 +75,27 @@ social:
 sass:
   sass_dir: _sass
   style: compressed
+     
+plugins:
+  - jekyll-archives
 
+jekyll-archives:
+  enabled:
+    - tags
+    - year
+    - month
+    - day
+  layouts:
+    year: archives-year
+    month: archives-month
+    day: archives-day
+    tag: archives-tag
+    category: archives-category
+  permalinks:
+    category: '/:name/'
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    tag: '/tags/:name/'
+
+# theme specific setting

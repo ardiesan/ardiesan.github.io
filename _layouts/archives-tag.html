@@ -1,0 +1,33 @@
+---
+layout: archive
+---
+		<div class="row">
+			<div class="12u">
+      <h2>{{ page.title }}</span></h2>
+			<ul class="alt">
+      {%- assign pages = site[page.pages] | default: site.posts -%}
+      {% for post in page.posts %}
+				<li class="tags__list__item">
+          <div class="tags__list__header__container">
+					  <a href="{{ post.url | relative_url }}" class="tags__list__link clearfix">
+						  <span class="tags__list__title">{{ post.title }}</span>
+            </a>
+            <span class="tags__list__time">{%- if post.layout == 'book' -%}{{ post.date }}{%- else -%}{{ post.date | date: "%Y-%m-%d" }}{%- endif -%}</span>
+            <span class="tags__list__readtime">{% include read-time.html content=post.content %}</span>
+          </div>
+          <div class="tags__list__excerpt">
+            {{ post.excerpt }}
+          </div>
+        </li>
+      {% endfor %}
+			</ul>
+    </div>
+
+		<div class="row">
+			<div class="12u">
+      <h2 class="tags__all__header">All Tags</h2>
+        {% for tag in site.tags %}
+        <a href="/tags/{{ tag[0] | slugify }}" class="post-tag"><nobr>{{ tag[0] }}</nobr>&nbsp;</a> 
+        {% endfor %}
+      </div>
+  </div>
