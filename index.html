@@ -4,8 +4,8 @@ layout: landing
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
-							<h2>{{ site.title }}</h2>
-							<p>{{ site.description | markdownify }}</p>
+							<h2 style="padding-bottom:0px;margin-bottom:0px;line-height:40px;"><img src="{{ site.baseurl }}/images/ardiesan.svg" alt="ardiesan" width="100px" style="margin-bottom:0px;padding-bottom:0px;fill:#fff;"/></h2>
+              <p>{{ site.description | markdownify }}</p>
               {% comment %}
 							<ul class="actions">
 								<li><a href="#" class="button special">Activate</a></li>
@@ -78,9 +78,11 @@ layout: landing
               </ul>
             </div>
   					<div class="6u 12u$(medium) pr-2">
-              <h2>Development guide</h2>
+              <h2>Resources</h2>
               <ul class="alt">
-              {% for post in site.posts limit:5 %}
+                <li><a href="{{ site.baseurl  }}/development-guide">Development Guide</a></li>
+                <li><a href="{{ site.baseurl  }}/engineers-training">Engineers Training</a></li>
+              {% for post in site.posts limit:0 %}
                 {% if post.tags contains "development guide" %}
                 <li>
                 <a href="{{ post.url }}">
