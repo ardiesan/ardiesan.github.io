@@ -41,14 +41,14 @@ If you are on Linux, WSL, Android, or BusyBox, installation of:
 * GPG
 * pinentry 
 
-is out of scope of this article.
+is out of scope of this article. It should however be really simple to find the `apt`, `yum`, `rpm`, `dpkg`, `*pkg`, `dnf`, synaptic, pacman, or portage equivalents.
 
 
 ### Install Requirements
 
 
 ```
-brew install git git-credential-manager gpg pinentry-mac 
+brew install git git-credential-manager gpg pinentry pinentry-mac 
 ```
 
 
