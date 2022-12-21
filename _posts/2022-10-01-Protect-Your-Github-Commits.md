@@ -52,7 +52,7 @@ brew install git git-credential-manager gpg pinentry-mac
 ```
 
 
-## Steps to Setup
+## GPG Key Generation & Github Setup
 
 Signing a commit will require an SSH key or GPG key. We will use GPG key in this process.
 
@@ -63,7 +63,7 @@ gpg --full-generate-key
 Choose the defaults or `ECC (sign and encrypt)` and `Curve 255419`. I strongly suggest setting an expiry date. End of the year, if you will.
 
 
-Fill in and the needed information and make sure to use your github provided private email address. You can find that at [https://github.com/settings/emails](https://github.com/settings/emails) with the following pattern `@users.noreply.github.com`
+Fill in the needed information and make sure to use your github provided private email address. You can find that at [https://github.com/settings/emails](https://github.com/settings/emails) with the following pattern `@users.noreply.github.com`
 
 Make sure that the checkbox `Keep my email addresses private` together with `Block command line pushes that expose my email` is checked.
 
@@ -91,16 +91,18 @@ Copy the text in the terminal or use `pbcopy` to send exported data to clipboard
 gpg --export --armor {short-key} | pbcopy
 ```
 
-Open (https://github.com/settings/keys)[https://github.com/settings/keys] on a browser and click `New GPG key` button. Paste the key.
+Open [https://github.com/settings/keys](https://github.com/settings/keys) on a browser and click `New GPG key` button. Paste the key.
 
 
-Configure local copy of repository to use the signingkey.
+Configure git to use a signingkey.
 
 ```
 git config user.signingkey {short-key}
 ```
 
-Assuming you are on MacOS and is using Homebrew, you can find your gpg application using `which`
+## Git Signing Application
+
+Find the path of the gpg application using `which`
 
 ```
 which gpg
@@ -121,7 +123,7 @@ git config gpg.program `which gpg`
 
 ## Signing New Commits
 
-To sign new commits, simply add `-S` to your `git commit`:
+To sign new commits, simply add `-S` to your `git commit` like so
 
 ```
 git commit -S -m "This commit will be signed with the configured signing key"
