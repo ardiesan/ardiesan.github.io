@@ -27,6 +27,30 @@ article in using GPG.
 
 ## Why Sign Your Work
 
+Why Sign? Because anyone can make a commit as you if they know one or two of the emails you use to contribute work for either private or public git managed source codes.
+
+A malicious individual can submit code under your name and email, contributing poor quality or malicious code.
+
+## Pre-Setup and Assumption
+
+This article assumes you are on MacOS and is familiar with executing commands via Terminal.app 
+
+If you are on Linux, WSL, Android, or BusyBox, installation of:
+
+* Git Credential Manager (GCM)
+* GPG
+* pinentry 
+
+is out of scope of this article.
+
+
+### Install Requirements
+
+
+```
+brew install git git-credential-manager gpg pinentry-mac 
+```
+
 
 ## Steps to Setup
 
@@ -70,10 +94,10 @@ gpg --export --armor {short-key} | pbcopy
 Open (https://github.com/settings/keys)[https://github.com/settings/keys] on a browser and click `New GPG key` button. Paste the key.
 
 
-Configure local copy of repository to use the signingkey. If you only work with one Git GitHub account, you do not need to use the `--local` option.
+Configure local copy of repository to use the signingkey.
 
 ```
-git config --local user.signingkey {short-key}
+git config user.signingkey {short-key}
 ```
 
 Assuming you are on MacOS and is using Homebrew, you can find your gpg application using `which`
@@ -86,13 +110,35 @@ Copy the return path and configure git to use that as the `gpg.program`. Assumin
 
 
 ```
-git config --local gpg.program /opt/homebrew/bin/gpg
+git config gpg.program /opt/homebrew/bin/gpg
 ```
 
-## Auto-sign
+or use backtick to use a command output as a command argument like:
+
+```
+git config gpg.program `which gpg`
+```
+
+## Signing New Commits
+
+To sign new commits, simply add `-S` to your `git commit`:
+
+```
+git commit -S -m "This commit will be signed with the configured signing key"
+```
+
+## Auto-Sign New Commits
 
 Finally, setup git to always sign commits.
 
 ```
 git config commit.gpgsign true
 ```
+
+With the `commit.gpgsign` configured to true, there will be no need to add `-S` to every commits made.
+
+
+
+## Multi-Project, Multi-Email, Multi-Keys/Machine
+
+If you work with the above scenarios, you can use the `--local` option when executing `git config` for every local checkout you have.
