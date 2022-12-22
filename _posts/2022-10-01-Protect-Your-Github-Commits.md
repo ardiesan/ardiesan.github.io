@@ -60,7 +60,9 @@ Signing a commit will require an SSH key or GPG key. We will use GPG key in this
 gpg --full-generate-key
 ```
 
-Choose the defaults or `ECC (sign and encrypt)` and `Curve 255419`. I strongly suggest setting an expiry date. End of the year, if you will.
+Choose the defaults or `ECC (sign and encrypt)`, `Curve 25519`, and `1y`.
+
+I strongly suggest setting an expiry date. End of the year, if you will.
 
 
 Fill in the needed information and make sure to use your github provided private email address. You can find that at [https://github.com/settings/emails](https://github.com/settings/emails) with the following pattern `@users.noreply.github.com`
@@ -73,22 +75,22 @@ This is also a good time to re-configure your Git to no longer use your private 
 git config user.email {github_provided_username}@users.noreply.github.com 
 ```
 
-Now that that is configured, time to export the generated keys so we can tell GitHub which keys proves who we are. First step is to get the key id, specifically the short key.
+Now that that is configured, time to export the generated keys so we can tell GitHub which keys proves who we are. First step is to get the key id, specifically the long keyid.
 
 ```
-gpg --list-keys --keyid-format short
+gpg --list-keys --keyid-format long
 ```
 
-The shortkey is usually after `pub  ed25519/`, copy the short key and execute the command below:
+The long keyid is usually after `pub  ed25519/`, copy the long keyid and execute the command below:
 
 ```
-gpg --export --armor {short-key}
+gpg --export --armor {long-keyid}
 ```
 
 Copy the text in the terminal or use `pbcopy` to send exported data to clipboard
 
 ```
-gpg --export --armor {short-key} | pbcopy
+gpg --export --armor {long-keyid} | pbcopy
 ```
 
 Open [https://github.com/settings/keys](https://github.com/settings/keys) on a browser and click `New GPG key` button. Paste the key.
@@ -97,7 +99,7 @@ Open [https://github.com/settings/keys](https://github.com/settings/keys) on a b
 Configure git to use a signingkey.
 
 ```
-git config user.signingkey {short-key}
+git config user.signingkey {long-keyid}
 ```
 
 ## Git Signing Application
@@ -143,4 +145,4 @@ With the `commit.gpgsign` configured to true, there will be no need to add `-S` 
 
 ## Multi-Project, Multi-Email, Multi-Keys/Machine
 
-If you work with the above scenarios, you can use the `--local` option when executing `git config` for every local checkout you have.
+If you work with the above scenarios, you can use the `--local` option when executing `git config` for every local project repository you are working on.
