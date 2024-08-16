@@ -250,6 +250,10 @@ $baseurl: '{{ site.baseurl }}/images';
 			font-size: 0.9em;
 		}
 
+                > .byline {
+                        font-size: 0.7em;
+                }
+
 		&.major {
 			margin: 0 0 (_size(element-margin) * 1.75) 0;
 
@@ -281,6 +285,7 @@ $baseurl: '{{ site.baseurl }}/images';
 				display: none;
 			}
 		}
+
 	}
 
 /* Form */
@@ -1487,6 +1492,7 @@ $baseurl: '{{ site.baseurl }}/images';
 				opacity: 0;
 			}
 		}
+
 	}
 
 /* Banner */

@@ -6,14 +6,14 @@ layout: default
   {%- assign author = site.data.authors[page.author] -%}
   <header>
     <h2>{{ page.title }}</h2>
-    {% if author %}
     <div class="inner byline">
+      {% if author %}
       <address>by <a rel="author">{{ author.name }}</a></address>
+      {% endif %}
       {% if page.date %}
       on <time>{{ page.date | date: "%Y-%m-%d %H:%M " | append: site.timezone }}</time> 
       {% endif %}
     </div>
-    {% endif %}
     {% if page.description %}
     <p>{{ page.description }}</p>
     {% endif %}
