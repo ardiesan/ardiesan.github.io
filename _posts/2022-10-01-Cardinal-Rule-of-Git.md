@@ -4,6 +4,7 @@ title: "Cardinal Rule of Git"
 author: ardie
 categories:
 - wares
+toc: false
 ---
 
 Believe it or not, Git prescribes when you should push your work to the repository.<!-- more -->
