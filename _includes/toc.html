@@ -42,22 +42,7 @@
 }
 </style>
 
-<script type="text/javascript">
-window.onload = function() {
-var coll = document.getElementsByClassName("collapsible");
-for (let i = 0; i <= coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-}
-</script>
+<script type="text/javascript" src="/js/toc.js" />
 
 <div class="tocbox">
     <h5 class="collapsible"><span>Table of Contents</span></h5>
