@@ -7,12 +7,12 @@ layout: archive
 		<ul class="alt">
     {%- assign pages = site[page.pages] | default: site.posts -%}
     {% for post in page.posts %}
-			<li class="list_item">
+	<li class="list_item">
         <div class="list_header_container">
+          <span class="list_time" style="width: 12em; display: inline-block;">{%- if post.layout == 'book' -%}{{ post.date }}{%- else -%}{{ post.date | date: "%Y %B %d" }}{%- endif -%}</span>
 				  <a href="{{ post.url | relative_url }}" class="tags__list__link clearfix">
 					  <span class="list_title">{{ post.title }}</span>
           </a>
-          <span class="list_time">{%- if post.layout == 'book' -%}{{ post.date }}{%- else -%}{{ post.date | date: "%Y-%m-%d" }}{%- endif -%}</span>
           <span class="list_readtime">{% include read-time.html content=post.content %}</span>
         </div>
         {% comment %}

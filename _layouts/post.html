@@ -21,6 +21,10 @@ layout: default
 
   <section class="wrapper style5">
     <div class="inner">
+        {% include toc.html %}
+    </div>
+
+    <div class="inner">
       {{ content }}
     </div>
 
@@ -28,7 +32,7 @@ layout: default
       <hr/>
       <h4 class="">All Tags</h4>
       {% for tag in site.tags %}
-      <a href="/tags/{{ tag[0] | slugify }}" class="post-tag"><nobr>{{ tag[0] }}</nobr>&nbsp;</a> 
+      <a href="/tag/{{ tag[0] | slugify }}" class="post-tag"><nobr>{{ tag[0] }}</nobr>&nbsp;</a> 
       {% endfor %}
     </div>
 

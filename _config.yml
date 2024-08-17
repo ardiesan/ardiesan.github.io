@@ -70,14 +70,22 @@ social:
   #tripadvisor:
   #amazon:
 
+defaults:
+  - scope:
+      path: ""
+    values:
+      toc: true
+
 #sass:
 #  style: compressed
 sass:
   sass_dir: _sass
   style: compressed
      
+
 plugins:
   - jekyll-archives
+  - jekyll-toc
 
 jekyll-archives:
   enabled:
@@ -92,10 +100,21 @@ jekyll-archives:
     tag: archives-tag
     category: archives-category
   permalinks:
-    category: '/:name/'
-    year: '/:year/'
-    month: '/:year/:month/'
-    day: '/:year/:month/:day/'
-    tag: '/tag/:name/'
+    category: /:name/
+    year: /:year/
+    month: /:year/:month/
+    day: /:year/:month/:day/
+    tag: /tag/:name/
+
+# table of contents
+toc:
+  min_level: 1
+  max_level: 6
+  ordered_list: false
+  no_toc_section_class: no_toc_section
+  list_id: toc
+  list_class: list-group
+  sublist_class: list-group-item-action
+  item_class: list-group-item list-group-item-action
 
 # theme specific setting

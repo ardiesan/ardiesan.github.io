@@ -1,0 +1,19 @@
+---
+layout: page
+toc: false
+---
+              <h2>All Posts</h2>
+              <ul class="alt">
+              {% for post in site.posts %}
+                {% if post.tags contains "development guide" %}
+                  {% continue %}
+                {% endif %}
+                <li>
+                <span style="width: 12em; display: inline-block;">{{ post.date | date: "%Y %B %d" }}</span>
+                <a href="{{ post.url }}">
+                  <span class="latest_post_title">{{ post.title }}</span>
+                  <span class="latest_post_readtime">{% include read-time.html content=post.content %}</span>
+                </a>
+                </li>
+              {% endfor %}
+              </ul>
