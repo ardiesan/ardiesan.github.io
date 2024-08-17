@@ -117,4 +117,8 @@ toc:
   sublist_class: list-group-item-action
   item_class: list-group-item list-group-item-action
 
+assets:
+    external:
+      uglifier:
+        harmony: true
 # theme specific setting
